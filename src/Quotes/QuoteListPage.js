@@ -9,37 +9,38 @@ const navigate = useNavigate()
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
 
+  const fetchQuotes = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(`https://assignment.stage.crafto.app/getQuotes?limit=20&offset=${offset}`, {
+        headers: {
+          Authorization: token
+        }
+      });
+
+ 
+      const fetchedQuotes = response.data.quotes || response.data.data || response.data; // Adjust based on actual structure
+
+      if (!Array.isArray(fetchedQuotes)) {
+        console.error("Fetched data is not an array");
+        return;
+      }
+
+      if (fetchedQuotes.length === 0) return; 
+
+      setQuotes((prev) => [...prev, ...fetchedQuotes]);
+      setOffset((prevOffset) => prevOffset + 20);
+      setLoading(false);
+    } catch (error) {
+      console.error("Failed to fetch quotes", error);
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchQuotes = async () => {
-        try {
-            setLoading(true);
-            const response = await axios.get(`https://assignment.stage.crafto.app/getQuotes?limit=20&offset=${offset}`, {
-                headers: {
-                    Authorization: token
-                }
-            });
-
-            const fetchedQuotes = response.data.quotes || response.data.data || response.data;
-
-            if (!Array.isArray(fetchedQuotes)) {
-                console.error("Fetched data is not an array");
-                return;
-            }
-
-            if (fetchedQuotes.length === 0) return;
-
-            setQuotes((prev) => [...prev, ...fetchedQuotes]);
-            setOffset((prevOffset) => prevOffset + 20);
-            setLoading(false);
-        } catch (error) {
-            console.error("Failed to fetch quotes", error);
-            setLoading(false);
-        }
-    };
-
     fetchQuotes();
-}, [offset, token]); // Include external dependencies used inside the function
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
