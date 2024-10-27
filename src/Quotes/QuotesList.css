@@ -1,0 +1,195 @@
+/* Base Styles for Desktop */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-top: 20px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+.quote {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.quote:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.quote-image {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin-right: 20px;
+}
+
+.quote-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.quote-text {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  color: white;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.quote-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.quote-info p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.quote-info p:first-child {
+  font-weight: bold;
+  color: #333;
+}
+
+.quote-info p:last-child {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+button, input, textarea {
+  padding: 12px;
+  font-size: 1rem;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.5);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.fixed-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.fixed-button:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin: 20px 0;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .quote {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .quote-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
+
+  .quote-text {
+    font-size: 1rem;
+  }
+
+  .quote-info p {
+    font-size: 0.9rem;
+  }
+
+  button, input, textarea {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .quote-text {
+    font-size: 0.9rem;
+  }
+
+  .quote-info p {
+    font-size: 0.8rem;
+  }
+
+  button, input, textarea {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .fixed-button {
+    padding: 12px;
+    font-size: 1.3rem;
+  }
+}
