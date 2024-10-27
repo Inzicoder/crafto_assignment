@@ -39,7 +39,7 @@ const navigate = useNavigate()
 
   useEffect(() => {
     fetchQuotes();
-  }, [fetchQuotes]);
+  }, []);
 
   return (
     <div>
